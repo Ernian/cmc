@@ -19,6 +19,11 @@
   font-style: normal;
 }
 
+:root {
+  --bg-color: #282828;
+  --primary-color: #FBA91B;
+}
+
 body {
   margin: 0;
   background-color: #1E1E1E;
@@ -38,16 +43,6 @@ body {
   align-items: center; */
 }
 
-.nav-menu {
-  display: flex;
-  padding: 40px;
-}
-
-.logo {
-  display: block;
-  cursor: pointer;
-}
-
 .ready-desicion-text {
   padding: 0;
   margin: 0;
@@ -60,4 +55,5 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-49%, 540%);
+  white-space: nowrap;
 }

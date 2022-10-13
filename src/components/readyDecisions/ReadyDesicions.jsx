@@ -4,7 +4,7 @@ import './elements.css'
 import heat from '../../assets/svg/heat.svg'
 import water from '../../assets/svg/water.svg'
 import wind from '../../assets/svg/wind.svg'
-import condition from '../../assets/svg/condition.svg'
+import cold from '../../assets/svg/cold.svg'
 
 function ReadyDecision() {
     const elements = [
@@ -34,7 +34,7 @@ function ReadyDecision() {
 
         },
         {
-            svg: condition,
+            svg: cold,
             type: 'condition',
             marginLeft: false,
             title: 'ХОЛОД',
