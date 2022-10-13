@@ -10,23 +10,36 @@ function ReadyDecision() {
     const elements = [
         {
             svg: heat,
-            position: { x: '-102%', y: '-102%' },
             type: 'heat',
+            marginLeft: true,
+            title: 'ТЕПЛО',
+            color: '#EE423E',
+            position: 'translate(-101%, -103%)',
         },
         {
             svg: water,
-            position: { x: '2%', y: '-102%' },
             type: 'water',
+            marginLeft: false,
+            title: 'ВОДА',
+            color: '#20469A',
+            position: 'translate(1%, -103%)',
         },
         {
             svg: wind,
-            position: { x: '-102%', y: '2%' },
             type: 'wind',
+            marginLeft: true,
+            title: 'ВОЗДУХ',
+            color: '#FBA91B',
+            position: 'translate(-101%, 3%)',
+
         },
         {
             svg: condition,
-            position: { x: '2%', y: '2%' },
             type: 'condition',
+            marginLeft: false,
+            title: 'ХОЛОД',
+            color: '#00B1B0',
+            position: 'translate(1%, 3%)',
         },
     ]
 
@@ -40,7 +53,9 @@ function ReadyDecision() {
                     animationFillMode: 'backwards',
                     animationDelay: '1s'
                 }}
-            >готовые решения</p>
+            >
+                готовые решения
+            </p>
         </>
 
     )
