@@ -1,0 +1,16 @@
+.loading__container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg {
+    display: block;
+    width: 20%;
+    overflow: visible;
+    stroke: #FBA91B;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}

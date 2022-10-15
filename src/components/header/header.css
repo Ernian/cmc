@@ -4,8 +4,8 @@ header {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    width: 96%;
-    padding: 30px;
+    width: 90%;
+    padding: 30px 100px;
     position: absolute;
 }
 
