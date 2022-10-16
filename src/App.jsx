@@ -8,7 +8,7 @@ function App() {
 
     return (
         <AnimatePresence>
-            {isLoading ? (<LoadingPage setIsLoading={setIsLoading} />) : <MainPage />}
+            {isLoading ? <LoadingPage setIsLoading={setIsLoading} /> : <MainPage />}
         </AnimatePresence>
     );
 }

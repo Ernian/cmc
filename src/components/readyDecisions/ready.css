@@ -1,0 +1,50 @@
+.element {
+    width: 196px;
+    height: 196px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.element-title {
+    width: 550px;
+    height: 196px;
+    padding: 18px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'VKSD-DemiBold';
+    font-size: 128px;
+    line-height: 160px;
+    color: #1E1E1E;
+    margin-left: auto;
+}
+
+.heat {
+    transform: translate(calc(-100% - 5px), calc(-100% - 5px))
+}
+
+.water {
+    transform: translate(5px, calc(-100% - 5px))
+}
+
+.wind {
+    transform: translate(calc(-100% - 5px), 5px)
+}
+
+.cold {
+    transform: translate(5px, 5px)
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,20 +1,13 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url('./assets/fonts/Roboto/Roboto-Regular.ttf');
+  font-family: 'VKSD-DemiBold';
+  src: url('./assets/fonts/VKSD-DemiBold.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'VKSansDisplay-DemiBold';
-  src: url('./assets/fonts/VKSansDisplay-DemiBold.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'VKSansDisplay-Regular';
-  src: url('./assets/fonts/VKSansDisplay-Regular.ttf');
+  font-family: 'VKSD-Regular';
+  src: url('./assets/fonts/VKSD-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,9 +20,7 @@
 body {
   margin: 0;
   background-color: #1E1E1E;
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI',
-    sans-serif;
+  font-family: 'VKSD-Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,9 +29,6 @@ body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .ready-desicion-text {
