@@ -8,7 +8,7 @@ import icon_cold from '../../assets/svg/icon_cold.svg'
 import { AnimatePresence, motion } from 'framer-motion'
 import './header.css'
 
-const Header = () => {
+const Header = ({ icons }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const onHover = () => {
@@ -48,7 +48,7 @@ const Header = () => {
                 />
 
                 <AnimatePresence initial={false}>
-                    {isOpen && (
+                    {(icons && isOpen) && (
                         <>
                             <motion.a {...animation} transition={{ ...animation.transition, delay: 0 }} href="/a">
                                 <img className={'header__left__icon'} src={icon_heat} alt="heat" />
@@ -73,7 +73,7 @@ const Header = () => {
 
             <nav>
                 <AnimatePresence initial={false}>
-                    {isOpen && (
+                    {(!icons || isOpen) && (
                         <>
                             <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/a">О КОМПАНИИ</motion.a>
                             <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/b">НАШИ УСЛУГИ</motion.a>

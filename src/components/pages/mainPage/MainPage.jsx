@@ -4,7 +4,7 @@ import ReadyDecision from '../../readyDecisions/ReadyDesicions'
 function MainPage() {
     return (
         <>
-            <Header />
+            <Header icons={false} />
             <ReadyDecision />
         </>
     )
