@@ -53,9 +53,9 @@ const Element = ({
     const svgMoveVariants = {
         hidden: { x: 0 },
         visible: {
-            x: elementsState[type] ? (leftSide ? - 720 : 555) : null,
+            x: elementsState[type] ? (leftSide ? -740 : 553) : null,
             transition: {
-                duration: .4,
+                duration: .3,
                 ease: 'easeInOut',
             }
         },
@@ -64,16 +64,16 @@ const Element = ({
     const titleVariants = {
         hidden: {
             opacity: 0,
-            width: 196,
+            width: 0,
         },
         visible: {
             opacity: 1,
             width: 550,
             transition: {
-                duration: .4,
+                duration: .2,
                 ease: 'easeInOut'
             }
-        }
+        },
     }
 
     return (
@@ -85,6 +85,7 @@ const Element = ({
                 variants={elementsState[type] ? svgMoveVariants : svgAppearanceVariants}
                 className={`element ${type}`}
                 onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
             >
                 <img src={svg} alt={type} />
             </motion.div>
@@ -97,6 +98,7 @@ const Element = ({
                 initial='hidden'
                 animate={elementsState[type] ? 'visible' : ''}
                 variants={titleVariants}
+                onMouseEnter={onEnter}
                 onMouseLeave={onLeave}
             >
                 <p style={{ margin: 0 }}>{title}</p>
