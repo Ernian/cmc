@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/svg/logo.svg'
 import icon_heat from '../../assets/svg/icon_heat.svg'
@@ -35,24 +36,26 @@ const Header = ({ icons }) => {
     }
 
     return (
-
         <header
             onMouseEnter={onHover}
             onMouseLeave={onMouseLeave}
+            style={{ zIndex: 10 }}
         >
             <div className={'header__left'}>
-                <img
 
-                    className={'header__left__logo'}
-                    src={logo} alt="logo"
-                />
+                <Link to='/'>
+                    <img
+                        className={'header__left__logo'}
+                        src={logo} alt="logo"
+                    />
+                </Link>
 
                 <AnimatePresence initial={false}>
                     {(icons && isOpen) && (
                         <>
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: 0 }} href="/a">
-                                <img className={'header__left__icon'} src={icon_heat} alt="heat" />
-                            </motion.a>
+                            <motion.div {...animation} transition={{ ...animation.transition, delay: 0 }} >
+                                <Link to='/heat'><img className={'header__left__icon'} src={icon_heat} alt="heat" /></Link>
+                            </motion.div>
 
                             <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/b">
                                 <img className={'header__left__icon'} src={icon_water} alt="water" />

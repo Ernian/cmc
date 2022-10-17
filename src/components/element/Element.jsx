@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const Element = ({
     svg,
@@ -77,8 +78,7 @@ const Element = ({
     }
 
     return (
-        <>
-
+        <Link to={`/${type}`}>
             <motion.div
                 initial='hidden'
                 animate='visible'
@@ -103,9 +103,7 @@ const Element = ({
             >
                 <p style={{ margin: 0 }}>{title}</p>
             </motion.div>
-
-        </>
-
+        </Link>
     )
 }
 

@@ -21,6 +21,7 @@ header .header__left__logo {
     width: auto;
     height: 57px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 header .header__left__icon {
