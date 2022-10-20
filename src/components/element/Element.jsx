@@ -68,11 +68,12 @@ const Element = ({
             width: 0,
         },
         visible: {
+            display: 'block',
             opacity: 1,
             width: 550,
             transition: {
-                duration: .2,
-                ease: 'easeInOut'
+                duration: .3,
+                ease: 'easeOut',
             }
         },
     }

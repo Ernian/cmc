@@ -7,6 +7,7 @@ header {
     width: 90%;
     padding: 30px 100px;
     position: absolute;
+    user-select: none;
 }
 
 header .header__left {
