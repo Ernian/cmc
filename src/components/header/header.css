@@ -8,6 +8,7 @@ header {
     padding: 30px 100px;
     position: absolute;
     user-select: none;
+    z-index: 10;
 }
 
 header .header__left {
@@ -25,52 +26,113 @@ header .header__left__logo {
     cursor: pointer;
 }
 
-header .header__left__icon {
-    border-radius: 5px;
-    width: 50px;
-    height: 50px;
-    transition: 0.1s all ease-in;
+.menu-link {
+    text-align: right;
+    margin: 5px 0;
 }
 
-header .header__left__icon:hover {
-    transform: scale(1.05);
+.menu-link:hover {
+    transform: scale(1.02);
+    transition: all .3s;
 }
 
-header nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 2rem;
-}
-
-header nav a {
-    color: var(--primary-color);
-    opacity: 0.5;
+.menu-link-text {
+    font-weight: 700;
+    font-size: 39px;
+    line-height: 50px;
+    color: #FFFFFF;
     text-decoration: none;
-    transition: 0.2s all ease-in;
+    text-transform: capitalize;
 }
 
-header nav a:before {
-    content: "";
+.menu-address {
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 50px;
+    text-align: right;
+    color: #A2A2A2;
+}
+
+.menu-phone {
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 80px;
+    text-align: right;
+    color: #706F6F;
+    margin-top: 0;
+}
+
+.menu-mail {
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 59px;
+    text-align: right;
+    color: #5E5C5C;
+}
+
+.burger-menu {
+    box-sizing: border-box;
+    height: 47px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.burger-bar {
+    width: 60px;
+    height: 6px;
+    background-color: #FBA91B;
+    border-radius: 3px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 50%;
+    height: 100vh;
+    padding-top: 100px;
+    padding-right: 100px;
+    background-color: #464646;
+    opacity: .9;
     position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary-color);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.2s ease-in-out;
+    top: 0;
+    right: 0;
+    z-index: -1;
 }
 
-header nav a:hover {
-    opacity: 1;
+/* ------------- sliding menu ------------------ */
+.hidden {
+    display: none;
 }
 
-header nav a:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
+.visible {
+    display: inherit;
 }
 
-/*# sourceMappingURL=header.css.map */
+/* ----- animations--------- */
+/* clicked */
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg) translate(0.75em, 1.25em);
+    transition: ease-out .3s;
+}
+
+.burger-bar.clicked:nth-child(2) {
+    transform: scale(0);
+    transition: ease-out .3s;
+}
+
+.burger-bar.clicked:nth-child(3) {
+    transform: rotate(135deg) translate(-0.5em, 1em);
+    transition: ease-out .3s;
+}
+
+/* unclicked */
+.burger-bar.unclicked {
+    transform: rotate(0) translate(0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+}

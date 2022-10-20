@@ -1,92 +1,90 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import logo from '../../assets/svg/logo.svg'
-import icon_heat from '../../assets/svg/icon_heat.svg'
-import icon_water from '../../assets/svg/icon_water.svg'
-import icon_wind from '../../assets/svg/icon_wind.svg'
-import icon_cold from '../../assets/svg/icon_cold.svg'
-import { AnimatePresence, motion } from 'framer-motion'
 import './header.css'
 
-const Header = ({ icons }) => {
-    const [isOpen, setIsOpen] = useState(false)
+const Header = () => {
+    const [burger_class, setBurgerClass] = useState("burger-bar unclicked")
+    const [menu_class, setMenuClass] = useState("menu hidden")
+    const [isMenuClicked, setIsMenuClicked] = useState(false)
 
-    const onHover = () => {
-        setIsOpen(true)
+    const updateMenu = () => {
+        if (!isMenuClicked) {
+            setBurgerClass("burger-bar clicked")
+            setMenuClass("menu visible")
+        }
+        else {
+            setBurgerClass("burger-bar unclicked")
+            setMenuClass("menu hidden")
+        }
+        setIsMenuClicked(!isMenuClicked)
     }
 
-    const onMouseLeave = () => {
-        setIsOpen(false)
-    }
-
-    const animation = {
+    const menuVariantsIn = {
         initial: {
-            transform: 'scale(0)'
+            x: '100vh',
+            display: 'none',
         },
         animate: {
-            transform: 'scale(1)'
+            x: 0,
+            display: 'flex',
+            transition: {
+                duration: 0.4,
+                ease: 'easeInOut'
+            }
+        }
+    }
+    const menuVariantsOut = {
+        initial: {
+            x: 0,
         },
-        exit: {
-            transform: 'scale(0)'
-        },
-        transition: {
-            duration: 0.2
+        animate: {
+            x: '120vh',
+            transition: {
+                duration: 0.4,
+                ease: 'easeInOut'
+            }
         }
     }
 
     return (
-        <header
-            onMouseEnter={onHover}
-            onMouseLeave={onMouseLeave}
-            style={{ zIndex: 10 }}
-        >
-            <div className={'header__left'}>
-
+        <header>
+            <div className='header__left'>
                 <Link to='/'>
                     <img
                         className={'header__left__logo'}
                         src={logo} alt="logo"
                     />
                 </Link>
-
-                <AnimatePresence initial={false}>
-                    {(icons && isOpen) && (
-                        <>
-                            <motion.div {...animation} transition={{ ...animation.transition, delay: 0 }} >
-                                <Link to='/heat'><img className={'header__left__icon'} src={icon_heat} alt="heat" /></Link>
-                            </motion.div>
-
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/b">
-                                <img className={'header__left__icon'} src={icon_water} alt="water" />
-                            </motion.a>
-
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .2 }} href="/c">
-                                <img className={'header__left__icon'} src={icon_wind} alt="wind" />
-                            </motion.a>
-
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .3 }} href="/d">
-                                <img className={'header__left__icon'} src={icon_cold} alt="cold" />
-                            </motion.a>
-                        </>
-                    )}
-                </AnimatePresence>
-
             </div>
-
             <nav>
-                <AnimatePresence initial={false}>
-                    {(!icons || isOpen) && (
-                        <>
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/a">О КОМПАНИИ</motion.a>
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/b">НАШИ УСЛУГИ</motion.a>
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/c">РЕФЕРЕНС</motion.a>
-                            <motion.a {...animation} transition={{ ...animation.transition, delay: .1 }} href="/d">КОНТАКТЫ</motion.a>
-                        </>
-                    )}
-                </AnimatePresence>
+                <div className="burger-menu" onClick={updateMenu}>
+                    <div className={burger_class} ></div>
+                    <div className={burger_class} ></div>
+                    <div className={burger_class} ></div>
+                </div>
             </nav>
+            <motion.div
+                className={menu_class}
+                initial="initial"
+                animate="animate"
+                variants={isMenuClicked ? menuVariantsIn : menuVariantsOut}
+            >
+                <p className='menu-link'><Link to='/company' className='menu-link-text'>О КОМПАНИИ</Link></p>
+                <p className='menu-link'><Link to='/objects' className='menu-link-text'>РЕАЛИЗОВАННЫЕ ОБЪЕКТЫ</Link></p>
+                <p className='menu-link'> <Link to='/realization' className='menu-link-text'>КОМПЛЕКСНАЯ РЕАЛИЗАЦИЯ</Link></p>
+                <p className='menu-link'><Link to='/engineering' className='menu-link-text'>ПРОЕКТИРОВАНИЕ ОБЪЕКТОВ</Link></p>
+                <p className='menu-link'><Link to='/production' className='menu-link-text'>ПРОИЗВОДСТВО ОБОРУДОВАНИЯ</Link></p>
 
+                <p className='menu-address'>123112, ГОРОД МОСКВА,<br />
+                    НАБЕРЕЖНАЯ ПРЕСНЕНСКАЯ,<br />
+                    ДОМ 10, ЭТАЖ 43 ПОМ I КОМ 1-8
+                </p>
+                <p className='menu-phone'>+7 (499) 426-04-23</p>
+                <p className='menu-mail'>info@smseng.ru</p>
+            </motion.div>
         </header>
     )
 }
