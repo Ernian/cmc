@@ -46,6 +46,7 @@ header .header__left__logo {
 }
 
 .menu-address {
+    margin-top: auto;
     font-weight: 400;
     font-size: 34px;
     line-height: 50px;
@@ -60,6 +61,7 @@ header .header__left__logo {
     text-align: right;
     color: #706F6F;
     margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .menu-mail {
