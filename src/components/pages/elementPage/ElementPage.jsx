@@ -40,7 +40,11 @@ const ElementPage = () => {
 
     return (
         <>
-            <Header icons={true} />
+            <Header
+                logoColors={{
+                    menuClose: '#FBA91B',
+                    menuOpen: '#FFF'
+                }} />
             <div style={{ display: 'flex' }}>
                 <motion.div
                     className='left-side'

@@ -44,7 +44,7 @@ const Element = ({
             x: position.end.x,
             y: position.end.y,
             transition: {
-                duration: .8,
+                duration: 0.6,
                 ease: 'easeInOut'
             }
 

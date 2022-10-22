@@ -4,11 +4,12 @@ header {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     padding: 30px 100px;
     position: absolute;
     user-select: none;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 header .header__left {
@@ -22,7 +23,6 @@ header .header__left {
 header .header__left__logo {
     width: auto;
     height: 57px;
-    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -36,13 +36,21 @@ header .header__left__logo {
     transition: all .3s;
 }
 
+.menu-link-text>a,
+.menu-address>a,
+.menu-phone>a,
+.menu-mail>a {
+    text-decoration: none;
+    color: #A2A2A2;
+}
+
 .menu-link-text {
     font-weight: 700;
-    font-size: 39px;
-    line-height: 50px;
-    color: #FFFFFF;
-    text-decoration: none;
+    font-size: 35px;
+    line-height: 45px;
+    color: #FFF;
     text-transform: capitalize;
+    text-decoration: none;
 }
 
 .menu-address {
@@ -75,8 +83,8 @@ header .header__left__logo {
 
 .burger-menu {
     box-sizing: border-box;
-    height: 47px;
-    width: 50px;
+    height: 32px;
+    width: 35px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -85,7 +93,7 @@ header .header__left__logo {
 }
 
 .burger-bar {
-    width: 60px;
+    width: 35px;
     height: 6px;
     background-color: #FBA91B;
     border-radius: 3px;
@@ -93,14 +101,9 @@ header .header__left__logo {
 
 .menu {
     display: flex;
-    flex-direction: column;
     box-sizing: border-box;
-    width: 50%;
+    width: 100vw;
     height: 100vh;
-    padding-top: 100px;
-    padding-right: 100px;
-    background-color: #464646;
-    opacity: .9;
     position: absolute;
     top: 0;
     right: 0;
@@ -119,7 +122,9 @@ header .header__left__logo {
 /* ----- animations--------- */
 /* clicked */
 .burger-bar.clicked:nth-child(1) {
-    transform: rotate(45deg) translate(0.75em, 1.25em);
+    transform: rotate(45deg);
+    transform-origin: left top;
+    width: 40px;
     transition: ease-out .3s;
 }
 
@@ -129,7 +134,9 @@ header .header__left__logo {
 }
 
 .burger-bar.clicked:nth-child(3) {
-    transform: rotate(135deg) translate(-0.5em, 1em);
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+    width: 40px;
     transition: ease-out .3s;
 }
 

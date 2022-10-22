@@ -95,7 +95,6 @@ const ReadyDecision = () => {
                     {...element}
                     elementsState={elementsState}
                     setActiveElement={setActiveElement}
-
                 />
             })}
             <p

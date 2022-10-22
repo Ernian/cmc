@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-import logo from '../../assets/svg/logo.svg'
+import Logo from './Logo'
 import './header.css'
 
-const Header = () => {
+const Header = ({ logoColors }) => {
     const [burger_class, setBurgerClass] = useState('burger-bar unclicked')
     const [menu_class, setMenuClass] = useState('menu hidden')
     const [isMenuClicked, setIsMenuClicked] = useState(false)
@@ -102,6 +102,13 @@ const Header = () => {
         },
     }
 
+    const toWhiteColor = {
+        color: '#fff',
+        transition: {
+            duration: .2
+        }
+    }
+
     const menuLinks = [
         { title: 'О КОМПАНИИ', url: '/company' },
         { title: 'РЕАЛИЗОВАННЫЕ ОБЪЕКТЫ', url: '/objects' },
@@ -114,9 +121,9 @@ const Header = () => {
         <header>
             <div className='header__left'>
                 <Link to='/'>
-                    <img
-                        className={'header__left__logo'}
-                        src={logo} alt="logo"
+                    <Logo
+                        stroke={isMenuClicked ? logoColors.menuOpen : logoColors.menuClose}
+                        classN='header__left__logo'
                     />
                 </Link>
             </div>
@@ -133,48 +140,86 @@ const Header = () => {
                 animate="animate"
                 variants={isMenuClicked ? menuVariantsIn : menuVariantsOut}
             >
-                {
-                    menuLinks.map(({ title, url }, i) => (
-                        <motion.p
-                            key={url}
-                            className='menu-link'
-                            initial='initial'
-                            animate='animate'
-                            variants={isMenuClicked ? pVariantsIn : pVariantsOut}
-                            custom={i}
-                            whileHover={{
-                                scale: 1.02,
-                                transition: {
-                                    duration: 0.2
-                                }
-                            }}
-                        >
-                            <Link to={url} className='menu-link-text'>{title}</Link>
-                        </motion.p>
-                    ))
-                }
-
-                <motion.p
-                    className='menu-address'
-                    variants={isMenuClicked ? fadeIn : fadeOut}
-                    custom={0.9}
+                <div
+                    style={{
+                        width: '50%',
+                        backgroundColor: '#464646'
+                    }}
+                ></div>
+                <div
+                    style={{
+                        width: '50%',
+                        backgroundColor: '#1E1E1E',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        paddingTop: 100,
+                        paddingRight: 100,
+                        boxSizing: 'border-box',
+                    }}
                 >
-                    123112, ГОРОД МОСКВА,<br />
-                    НАБЕРЕЖНАЯ ПРЕСНЕНСКАЯ,<br />
-                    ДОМ 10, ЭТАЖ 43 ПОМ I КОМ 1-8
-                </motion.p>
-                <motion.p
-                    className='menu-phone'
-                    variants={isMenuClicked ? fadeIn : fadeOut}
-                    custom={1.1}
-                >+7 (499) 426-04-23</motion.p>
-                <motion.p
-                    className='menu-mail'
-                    variants={isMenuClicked ? fadeIn : fadeOut}
-                    custom={1.3}
-                >info@smseng.ru</motion.p>
+                    {
+                        menuLinks.map(({ title, url }, i) => (
+                            <motion.p
+                                key={url}
+                                className='menu-link'
+                                initial='initial'
+                                animate='animate'
+                                variants={isMenuClicked ? pVariantsIn : pVariantsOut}
+                                custom={i}
+                                whileHover={{
+                                    scale: 1.015,
+                                    transition: {
+                                        duration: 0.2
+                                    }
+                                }}
+                            >
+                                <Link to={url} className='menu-link-text'>{title}</Link>
+                            </motion.p>
+                        ))
+                    }
+
+                    <motion.p
+                        className='menu-address'
+                        variants={isMenuClicked ? fadeIn : fadeOut}
+                        custom={0.9}
+                    >
+                        <motion.a
+                            target='_blank'
+                            href="https://goo.gl/maps/HVAG3DTjWEAdFD7WA"
+                            whileHover={toWhiteColor}
+                        >
+                            123112, ГОРОД МОСКВА,<br />
+                            НАБЕРЕЖНАЯ ПРЕСНЕНСКАЯ,<br />
+                            ДОМ 10, ЭТАЖ 43 ПОМ I КОМ 1-8
+                        </motion.a>
+                    </motion.p>
+                    <motion.p
+                        className='menu-phone'
+                        variants={isMenuClicked ? fadeIn : fadeOut}
+                        custom={1.1}
+                    >
+                        <motion.a href="tel:84994260423"
+                            whileHover={toWhiteColor}
+                        >
+                            +7 (499) 426-04-23
+                        </motion.a>
+                    </motion.p>
+                    <motion.p
+                        className='menu-mail'
+                        variants={isMenuClicked ? fadeIn : fadeOut}
+                        custom={1.3}
+                    >
+                        <motion.a
+                            href="mailto:info@smseng.ru"
+                            whileHover={toWhiteColor}
+                        >
+                            info@smseng.ru
+                        </motion.a>
+                    </motion.p>
+                </div>
+
             </motion.div>
-        </header>
+        </header >
     )
 }
 

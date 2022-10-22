@@ -12,14 +12,14 @@
     display: none;
     width: 0px;
     height: 196px;
-    padding: 18px;
+    padding: 12px 18px;
     box-sizing: border-box;
     position: absolute;
     top: 50%;
     left: 50%;
-    font-family: 'VKSD-DemiBold';
+    font-family: 'CirceBold';
     font-size: 128px;
-    line-height: 160px;
+    line-height: 196px;
     color: #1E1E1E;
     margin-left: auto;
     cursor: pointer;

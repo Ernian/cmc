@@ -4,7 +4,12 @@ import ReadyDecision from '../../readyDecisions/ReadyDesicions'
 function MainPage() {
     return (
         <>
-            <Header icons={false} />
+            <Header
+                logoColors={{
+                    menuClose: '#FBA91B',
+                    menuOpen: '#FFF'
+                }}
+            />
             <ReadyDecision />
         </>
     )
