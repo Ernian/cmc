@@ -1,15 +1,11 @@
 @font-face {
-  font-family: 'VKSD-DemiBold';
-  src: url('./assets/fonts/VKSD-DemiBold.ttf');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'CirceBold';
+  src: url('./assets/fonts/CirceBold.ttf');
 }
 
 @font-face {
-  font-family: 'VKSD-Regular';
-  src: url('./assets/fonts/VKSD-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'CirceRegular';
+  src: url('./assets/fonts/CirceRegular.ttf');
 }
 
 :root {
@@ -20,7 +16,7 @@
 body {
   margin: 0;
   background-color: #1E1E1E;
-  font-family: 'VKSD-Regular';
+  font-family: 'CirceRegular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
