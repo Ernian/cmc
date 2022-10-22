@@ -124,6 +124,7 @@ header .header__left__logo {
 .burger-bar.clicked:nth-child(1) {
     transform: rotate(45deg);
     transform-origin: left top;
+    background-color: darkred;
     width: 40px;
     transition: ease-out .3s;
 }
@@ -136,6 +137,7 @@ header .header__left__logo {
 .burger-bar.clicked:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin: left bottom;
+    background-color: darkred;
     width: 40px;
     transition: ease-out .3s;
 }
