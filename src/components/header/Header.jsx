@@ -161,10 +161,7 @@ const Header = ({ logoColors: { menuOpen, menuClose } }) => {
                         >
                             <Link
                                 to={url}
-                                className='menu-link-text'
-                                style={{
-                                    color: currentUrl === url ? '#FBA91B' : '#FFF',
-                                }}
+                                className={currentUrl === url ? 'menu-link-text selected-menu-link' : 'menu-link-text '}
                             >
                                 {title}
                             </Link>

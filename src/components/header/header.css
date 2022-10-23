@@ -58,6 +58,10 @@ header .header__left__logo {
     transition: all .2s;
 }
 
+.menu-link-text.selected-menu-link {
+    color: #FBA91B;
+}
+
 .menu-address {
     margin-top: auto;
     font-weight: 400;
