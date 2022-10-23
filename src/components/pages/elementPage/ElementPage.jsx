@@ -49,7 +49,7 @@ const ElementPage = () => {
                 <motion.div
                     className='left-side'
                     style={{
-                        backgroundColor: props.color
+                        backgroundColor: props ? props.color : '#ddd'
                     }}
                     initial='initial'
                     animate='animate'
@@ -61,7 +61,10 @@ const ElementPage = () => {
                     animate='animate'
                     variants={rightSide}
                 >
-                    <h1 style={{ color: props.color }}>{props.title}</h1>
+                    <h1 style={{ color: props ? props.color : '#ddd' }}>
+                        {props ? props.title : 'aaa'}
+                        {window.location.pathname}
+                    </h1>
                 </motion.div>
             </div>
         </>

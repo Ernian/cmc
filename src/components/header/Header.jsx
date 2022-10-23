@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
 import Logo from './Logo'
 import './header.css'
 
-const Header = ({ logoColors }) => {
+const Header = ({ logoColors: { menuOpen, menuClose } }) => {
     const [burger_class, setBurgerClass] = useState('burger-bar unclicked')
     const [menu_class, setMenuClass] = useState('menu hidden')
     const [isMenuClicked, setIsMenuClicked] = useState(false)
+
+    const currentUrl = window.location.pathname
 
     const updateMenu = () => {
         if (!isMenuClicked) {
@@ -122,7 +123,7 @@ const Header = ({ logoColors }) => {
             <div className='header__left'>
                 <Link to='/'>
                     <Logo
-                        stroke={isMenuClicked ? logoColors.menuOpen : logoColors.menuClose}
+                        stroke={isMenuClicked ? menuOpen : menuClose}
                         classN='header__left__logo'
                     />
                 </Link>
@@ -140,43 +141,35 @@ const Header = ({ logoColors }) => {
                 animate="animate"
                 variants={isMenuClicked ? menuVariantsIn : menuVariantsOut}
             >
-                <div
-                    style={{
-                        width: '50%',
-                        backgroundColor: '#464646'
-                    }}
-                ></div>
-                <div
-                    style={{
-                        width: '50%',
-                        backgroundColor: '#1E1E1E',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        paddingTop: 100,
-                        paddingRight: 100,
-                        boxSizing: 'border-box',
-                    }}
-                >
-                    {
-                        menuLinks.map(({ title, url }, i) => (
-                            <motion.p
-                                key={url}
-                                className='menu-link'
-                                initial='initial'
-                                animate='animate'
-                                variants={isMenuClicked ? pVariantsIn : pVariantsOut}
-                                custom={i}
-                                whileHover={{
-                                    scale: 1.015,
-                                    transition: {
-                                        duration: 0.2
-                                    }
+                <div className='menu-left-side' />
+                <div className='menu-right-side'>
+                    {menuLinks.map(({ title, url }, i) => (
+                        <motion.p
+                            key={url}
+                            className='menu-link'
+                            initial='initial'
+                            animate='animate'
+                            variants={isMenuClicked ? pVariantsIn : pVariantsOut}
+                            custom={i}
+                            whileHover={{
+                                scale: 1.015,
+                                color: '#FBA91B',
+                                transition: {
+                                    duration: 0.2
+                                }
+                            }}
+                        >
+                            <Link
+                                to={url}
+                                className='menu-link-text'
+                                style={{
+                                    color: currentUrl === url ? '#FBA91B' : '#FFF',
                                 }}
                             >
-                                <Link to={url} className='menu-link-text'>{title}</Link>
-                            </motion.p>
-                        ))
-                    }
+                                {title}
+                            </Link>
+                        </motion.p>
+                    ))}
 
                     <motion.p
                         className='menu-address'
@@ -217,7 +210,6 @@ const Header = ({ logoColors }) => {
                         </motion.a>
                     </motion.p>
                 </div>
-
             </motion.div>
         </header >
     )

@@ -5,7 +5,7 @@ header {
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    padding: 30px 100px;
+    padding: 40px 40px 10px 100px;
     position: absolute;
     user-select: none;
     z-index: 10;
@@ -53,11 +53,16 @@ header .header__left__logo {
     text-decoration: none;
 }
 
+.menu-link-text:hover {
+    color: #FBA91B;
+    transition: all .2s;
+}
+
 .menu-address {
     margin-top: auto;
     font-weight: 400;
-    font-size: 34px;
-    line-height: 50px;
+    font-size: 32px;
+    line-height: 44px;
     text-align: right;
     color: #A2A2A2;
 }
@@ -75,7 +80,7 @@ header .header__left__logo {
 .menu-mail {
     margin-top: 0;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 59px;
     text-align: right;
     color: #5E5C5C;
@@ -83,7 +88,7 @@ header .header__left__logo {
 
 .burger-menu {
     box-sizing: border-box;
-    height: 32px;
+    height: 30px;
     width: 35px;
     display: flex;
     flex-direction: column;
@@ -94,9 +99,9 @@ header .header__left__logo {
 
 .burger-bar {
     width: 35px;
-    height: 6px;
+    height: 3px;
     background-color: #FBA91B;
-    border-radius: 3px;
+    border-radius: 1px;
 }
 
 .menu {
@@ -108,6 +113,21 @@ header .header__left__logo {
     top: 0;
     right: 0;
     z-index: -1;
+}
+
+.menu-right-side {
+    width: 50%;
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.menu-left-side {
+    width: 50%;
+    background-color: #464646;
 }
 
 /* ------------- sliding menu ------------------ */
@@ -124,7 +144,7 @@ header .header__left__logo {
 .burger-bar.clicked:nth-child(1) {
     transform: rotate(45deg);
     transform-origin: left top;
-    background-color: darkred;
+    background-color: #D60000;
     width: 40px;
     transition: ease-out .3s;
 }
@@ -137,7 +157,7 @@ header .header__left__logo {
 .burger-bar.clicked:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin: left bottom;
-    background-color: darkred;
+    background-color: #D60000;
     width: 40px;
     transition: ease-out .3s;
 }
