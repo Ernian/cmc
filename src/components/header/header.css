@@ -5,7 +5,7 @@ header {
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    padding: 40px 40px 10px 100px;
+    padding: 40px 40px 0px 100px;
     position: absolute;
     user-select: none;
     z-index: 10;
@@ -104,7 +104,7 @@ header .header__left__logo {
 .burger-bar {
     width: 35px;
     height: 3px;
-    background-color: #FBA91B;
+    /* background-color: #FBA91B; */
     border-radius: 1px;
 }
 

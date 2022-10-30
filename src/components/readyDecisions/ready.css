@@ -61,13 +61,3 @@
 .cold {
     transform: translate(5px, 5px)
 }
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}

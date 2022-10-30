@@ -13,14 +13,12 @@ const Element = ({
 }) => {
 
     const onEnter = () => {
-        setActiveElement(elementsState => {
-            return {
-                heat: false,
-                water: false,
-                wind: false,
-                cold: false,
-                [type]: true,
-            }
+        setActiveElement({
+            heat: false,
+            water: false,
+            wind: false,
+            cold: false,
+            [type]: true,
         })
     }
 

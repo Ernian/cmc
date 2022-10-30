@@ -1,18 +1,16 @@
-import Header from '../../header/Header'
+import { useEffect } from 'react'
 import ReadyDecision from '../../readyDecisions/ReadyDesicions'
 
-function MainPage() {
-    return (
-        <>
-            <Header
-                logoColors={{
-                    menuClose: '#FBA91B',
-                    menuOpen: '#FFF'
-                }}
-            />
-            <ReadyDecision />
-        </>
-    )
+const MainPage = ({ setMenuColors }) => {
+    useEffect(() => {
+        setMenuColors({
+            logoMenuClose: '#FBA91B',
+            logoMenuOpen: '#FFF',
+            menuColor: '#FBA91B',
+        })
+    }, [])
+
+    return <ReadyDecision />
 }
 
 export default MainPage
