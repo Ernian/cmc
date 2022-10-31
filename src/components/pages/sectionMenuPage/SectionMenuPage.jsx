@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion } from 'framer-motion'
 import './sectionMenuPage.css'
 
 const SectionMenuPage = ({
@@ -9,7 +9,6 @@ const SectionMenuPage = ({
 }) => {
 
     const [selectedArticle, setSelectedArticle] = useState(null)
-    const [titleClickedArticle, setTitleClickedArticle] = useState(true)
     const pRef = useRef()
     const imgRef = useRef()
 
@@ -102,18 +101,21 @@ const SectionMenuPage = ({
         },
     }
 
-    const selectArticle = (id, article) => {
+    const selectArticle = (article) => {
         if (selectedArticle === null) {
             setSelectedArticle(article)
         }
         if (selectedArticle && selectedArticle?.title !== article.title) {
-            setTitleClickedArticle(article.title)
             pRef.current.style.animation = 'fade-out .3s ease-in-out'
-            pRef.current.style.animationFillMode = 'backwards'
+            pRef.current.style.animation = 'fade-out .3s ease-in-out'
+            imgRef.current.style.animation = 'fade-out .3s ease-in-out'
+            imgRef.current.style.animationFillMode = 'backwards'
             setTimeout(() => {
                 setSelectedArticle(article)
                 pRef.current.style.animation = 'fade-in .3s ease-in-out'
                 pRef.current.style.animationFillMode = 'backwards'
+                imgRef.current.style.animation = 'fade-in .3s ease-in-out'
+                imgRef.current.style.animationFillMode = 'backwards'
             }, 300)
         }
     }
@@ -130,6 +132,7 @@ const SectionMenuPage = ({
                     <motion.img
                         // className='section-menu-img'
                         ref={imgRef}
+                        style={{ display: 'block' }}
                         src={selectedArticle.img}
                         alt={selectedArticle.title}
                         initial={{
@@ -185,28 +188,26 @@ const SectionMenuPage = ({
                             animate='animate'
                             variants={titleAppear}
                             custom={i}
-                            onClick={() => selectArticle(i, article)}
+                            onClick={() => selectArticle(article)}
                         >
                             {article.title}
                         </motion.li>
                     ))}
                 </motion.ul>
-                <AnimatePresence exitBeforeEnter>
-                    {
-                        selectedArticle && (
-                            <motion.p
-                                initial='initial'
-                                animate='animate'
-                                exit='exit'
-                                variants={pVariants}
-                                className='article-text'
-                                ref={pRef}
-                            >
-                                {selectedArticle.text}
-                            </motion.p>
-                        )
-                    }
-                </AnimatePresence>
+                {
+                    selectedArticle && (
+                        <motion.div
+                            initial='initial'
+                            animate='animate'
+                            exit='exit'
+                            variants={pVariants}
+                            className='article-text'
+                            ref={pRef}
+                        >
+                            {selectedArticle.text}
+                        </motion.div>
+                    )
+                }
             </motion.div>
         </div>
     )

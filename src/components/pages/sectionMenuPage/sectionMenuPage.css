@@ -79,9 +79,33 @@
     font-size: 36px;
     line-height: 53px;
     color: #FFF;
-    padding: 10px;
+    padding: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+
+    scrollbar-width: 8px;
+    scrollbar-color: #FBA91B transparent;
 }
 
 .article-text::first-letter {
     color: #FBA91B;
+}
+
+.article-text::-webkit-scrollbar {
+    width: 8px;
+    /* ширина scrollbar */
+}
+
+.article-text::-webkit-scrollbar-track {
+    background: transparent;
+    /* цвет дорожки */
+}
+
+.article-text::-webkit-scrollbar-thumb {
+    background-color: #FBA91B;
+    /* цвет плашки */
+    border-radius: 5px;
+    /* закругления плашки */
+    /* border: 10px solid transparent; */
+    /* padding вокруг плашки */
 }
