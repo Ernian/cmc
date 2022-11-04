@@ -48,7 +48,7 @@
     text-transform: uppercase;
     user-select: none;
     margin-top: 200px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     margin-right: 20px;
 }
 
@@ -72,11 +72,12 @@
 }
 
 .article-text {
+    box-sizing: border-box;
     font-size: 36px;
     line-height: 53px;
     color: #FFF;
     padding: 15px;
-    max-height: 60vh;
+    max-height: 55vh;
     overflow-y: auto;
 
     scrollbar-width: 8px;

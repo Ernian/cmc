@@ -6,6 +6,9 @@ import {
     MainPage,
     ProductionPage,
     CompressorPage,
+    ReceiverPage,
+    PumpPage,
+    RecoveryPage,
     Page404,
 } from './components/pages'
 import Header from './components/header/Header'
@@ -51,6 +54,9 @@ function App() {
                             element={<ProductionPage setMenuColors={setMenuColors} />}
                         />
                         <Route path='/production/compressor' element={<CompressorPage />} />
+                        <Route path='/production/receiver' element={<ReceiverPage />} />
+                        <Route path='/production/pump' element={<PumpPage />} />
+                        <Route path='/production/recovery' element={<RecoveryPage />} />
                         <Route path='*' element={<Page404 />} />
                     </Route>
                 </Routes>
