@@ -4,7 +4,7 @@ import SectionMenuPage from '../../sectionMenuPage/SectionMenuPage'
 import { productionPageData } from '../../data'
 
 const ProductionPage = () => {
-    const setMenuColors = useAppContext()
+    const { setMenuColors } = useAppContext()
     useEffect(() => {
         setMenuColors({
             logoMenuClose: '#FFF',

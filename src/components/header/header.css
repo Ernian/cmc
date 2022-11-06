@@ -145,12 +145,16 @@ header .header__left__logo {
 
 /* ----- animations--------- */
 /* clicked */
-.burger-bar.clicked:nth-child(1) {
-    transform: rotate(45deg);
-    transform-origin: left top;
+.burger-bar.clicked:nth-child(1),
+.burger-bar.clicked:nth-child(3) {
     background-color: #D60000;
     width: 40px;
     transition: ease-out .3s;
+}
+
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: left top;
 }
 
 .burger-bar.clicked:nth-child(2) {
@@ -161,9 +165,6 @@ header .header__left__logo {
 .burger-bar.clicked:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin: left bottom;
-    background-color: #D60000;
-    width: 40px;
-    transition: ease-out .3s;
 }
 
 /* unclicked */

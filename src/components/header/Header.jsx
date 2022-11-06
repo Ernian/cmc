@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Logo from './Logo'
 import './header.css'
+import './responsiveHeader.css'
 
 const Header = ({ logoMenuOpen, logoMenuClose, menuColor, isLoading }) => {
     const [burger_class, setBurgerClass] = useState('burger-bar unclicked')

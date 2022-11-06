@@ -1,29 +1,31 @@
 import { motion } from 'framer-motion'
+import useAppContext from '../../hooks/useAppContext'
 import './loadingPage.css'
-
-const pathV = {
-    hidden: {
-        opacity: 1,
-        pathLength: 0,
-        fill: 'rgba(251, 169, 27, 0)',
-    },
-    visible: {
-        opacity: .1,
-        scale: 0.01,
-        pathLength: 1,
-        fill: 'rgba(251, 169, 27, 1)',
-        x: -350,
-        y: -200,
-        transition: {
-            pathLength: { duration: 1.5, ease: "easeInOut" },
-            fill: { duration: 1, delay: 0.5, ease: "easeIn" },
-            default: { delay: 2, duration: .8 },
-        }
-    }
-}
 
 const LoadingPage = ({ setIsLoading }) => {
     const handleAnimationEnd = () => setIsLoading(false)
+    const { screenWidth } = useAppContext()
+
+    const pathV = {
+        hidden: {
+            opacity: 1,
+            pathLength: 0,
+            fill: 'rgba(251, 169, 27, 0)',
+        },
+        visible: {
+            opacity: .1,
+            scale: 0.01,
+            pathLength: 1,
+            fill: 'rgba(251, 169, 27, 1)',
+            x: -350,
+            y: screenWidth > 595 ? -200 : -600,
+            transition: {
+                pathLength: { duration: 1.5, ease: "easeInOut" },
+                fill: { duration: 1, delay: 0.5, ease: "easeIn" },
+                default: { delay: 2, duration: .8 },
+            }
+        }
+    }
 
     return (
         <motion.div

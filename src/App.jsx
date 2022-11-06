@@ -23,9 +23,16 @@ function App() {
         logoMenuOpen: '#FFF',
         menuColor: '#FBA91B',
     })
+    const [screenWidth, setScreenWidth] = useState(document.documentElement.clientWidth)
+
+    window.addEventListener('resize', () => {
+        setScreenWidth(document.documentElement.clientWidth)
+    })
+
+    const context = { setMenuColors, screenWidth, setScreenWidth }
 
     return (
-        <AppContext.Provider value={setMenuColors}>
+        <AppContext.Provider value={context}>
             <BrowserRouter>
                 <AnimatePresence>
                     <Routes>
