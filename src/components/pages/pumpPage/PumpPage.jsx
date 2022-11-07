@@ -4,7 +4,7 @@ import { productionPageData } from '../../data'
 import ArticlePage from '../../articlePage/ArticlePage'
 
 const PumpPage = () => {
-    const setMenuColors = useAppContext()
+    const { setMenuColors } = useAppContext()
     useEffect(() => {
         setMenuColors({
             logoMenuClose: '#FFF',

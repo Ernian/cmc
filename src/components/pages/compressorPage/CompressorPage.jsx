@@ -4,7 +4,7 @@ import ArticlePage from '../../articlePage/ArticlePage'
 import { productionPageData } from '../../data'
 
 const CompressorPage = () => {
-    const setMenuColors = useAppContext()
+    const { setMenuColors } = useAppContext()
     useEffect(() => {
         setMenuColors({
             logoMenuClose: '#FFF',
