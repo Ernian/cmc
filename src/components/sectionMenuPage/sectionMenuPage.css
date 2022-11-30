@@ -9,9 +9,6 @@
     position: relative;
 }
 
-.section-left-side {
-    background-color: #FBA91B;
-}
 
 .section-right-side {
     background-color: #1E1E1E;
@@ -49,7 +46,8 @@
     user-select: none;
     margin-top: 200px;
     margin-bottom: 5px;
-    margin-right: 20px;
+    margin-left: 75px;
+    padding: 0;
 }
 
 .article-title {
@@ -72,12 +70,13 @@
 }
 
 .article-text {
+    margin-left: 76px;
     box-sizing: border-box;
     font-size: 36px;
     line-height: 53px;
     color: #FFF;
-    padding: 15px;
-    max-height: 26vw;
+    padding: 0px;
+    max-height: 45vh;
     overflow-y: auto;
 
     scrollbar-width: 8px;
@@ -112,6 +111,7 @@
     position: absolute;
     top: 24%;
     right: 2%;
+    z-index: 10;
 }
 
 .arrow-back:hover {

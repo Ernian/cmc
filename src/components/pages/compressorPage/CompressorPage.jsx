@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import useAppContext from '../../hooks/useAppContext'
-import ArticlePage from '../../articlePage/ArticlePage'
 import { productionPageData } from '../../data'
+import ArticlePage from '../../articlePage/ArticlePage'
 
 const CompressorPage = () => {
     const { setMenuColors } = useAppContext()

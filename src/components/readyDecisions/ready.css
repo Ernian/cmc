@@ -8,6 +8,10 @@
     z-index: 5;
 }
 
+.element img {
+    border-radius: 10px;
+}
+
 .element-title {
     display: none;
     width: 0px;

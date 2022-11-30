@@ -4,15 +4,14 @@ import { AnimatePresence } from 'framer-motion'
 import {
     LoadingPage,
     MainPage,
-    ProductionPage,
-    CompressorPage,
-    ReceiverPage,
-    PumpPage,
-    RecoveryPage,
     Page404,
 } from './components/pages'
 import Header from './components/header/Header'
-
+import SectionMenuPage from './components/sectionMenuPage/SectionMenuPage'
+import SectionElementPage from './components/sectionElementPage/SectionElementPage'
+import ArticlePage from './components/articlePage/ArticlePage'
+import ElementArticlePage from './components/elementArticlePage/ElementArticlePage'
+import { productionPageData, heatPageData, waterPageData, windPageData, coldPageData } from './components/data'
 
 export const AppContext = createContext(null)
 
@@ -47,23 +46,91 @@ function App() {
                                     <LoadingPage setIsLoading={setIsLoading} />
                                     : <MainPage setMenuColors={setMenuColors} />
                             } />
-                            {/* <Route path='/heat' element={<HeatPage />} /> */}
-                            {/* <Route path='/water' element={<WaterPage />} /> */}
-                            {/* <Route path='/wind' element={<WindPage />} /> */}
-                            {/* <Route path='/cold' element={<ColdPage />} /> */}
+                            <Route
+                                path='/heat'
+                                element={
+                                    <SectionElementPage
+                                        menuColors={{
+                                            logoMenuClose: '#FFF',
+                                            logoMenuOpen: '#FFF',
+                                            menuColor: '#FFF',
+                                        }}
+                                        {...heatPageData}
+                                    />}
+                            />
 
-                            {/* <Route path='/company' element={<CompanyPage />} /> */}
-                            {/* <Route path='/objects' element={<CompanyPage />} /> */}
-                            {/* <Route path='/realization' element={<CompanyPage />} /> */}
-                            {/* <Route path='/engineering' element={<CompanyPage />} /> */}
+                            {/* <Route
+                                path='/heat/:id'
+                                element={<ElementArticlePage
+                                    menuColors={{
+                                        logoMenuClose: '#FFF',
+                                        logoMenuOpen: '#FFF',
+                                        menuColor: '#FFF',
+                                    }}
+                                    {...heatPageData}
+                                />}
+                            /> */}
+
+                            <Route
+                                path='/water'
+                                element={
+                                    <SectionElementPage
+                                        menuColors={{
+                                            logoMenuClose: '#FFF',
+                                            logoMenuOpen: '#FFF',
+                                            menuColor: '#FFF',
+                                        }}
+                                        {...waterPageData}
+                                    />}
+                            />
+
+                            <Route
+                                path='/wind'
+                                element={
+                                    <SectionElementPage
+                                        menuColors={{
+                                            logoMenuClose: '#FFF',
+                                            logoMenuOpen: '#FFF',
+                                            menuColor: '#FFF',
+                                        }}
+                                        {...windPageData}
+                                    />}
+                            />
+
+                            <Route
+                                path='/cold'
+                                element={
+                                    <SectionElementPage
+                                        menuColors={{
+                                            logoMenuClose: '#FFF',
+                                            logoMenuOpen: '#FFF',
+                                            menuColor: '#FFF',
+                                        }}
+                                        {...coldPageData}
+                                    />}
+                            />
                             <Route
                                 path='/production'
-                                element={<ProductionPage setMenuColors={setMenuColors} />}
+                                element={<SectionMenuPage
+                                    menuColors={{
+                                        logoMenuClose: '#FFF',
+                                        logoMenuOpen: '#FFF',
+                                        menuColor: '#FFF',
+                                    }}
+                                    {...productionPageData}
+                                />}
                             />
-                            <Route path='/production/compressor' element={<CompressorPage />} />
-                            <Route path='/production/receiver' element={<ReceiverPage />} />
-                            <Route path='/production/pump' element={<PumpPage />} />
-                            <Route path='/production/recovery' element={<RecoveryPage />} />
+                            <Route
+                                path='/production/:id'
+                                element={<ArticlePage
+                                    menuColors={{
+                                        logoMenuClose: '#FFF',
+                                        logoMenuOpen: '#FFF',
+                                        menuColor: '#FFF',
+                                    }}
+                                    {...productionPageData}
+                                />}
+                            />
                             <Route path='*' element={<Page404 />} />
                         </Route>
                     </Routes>

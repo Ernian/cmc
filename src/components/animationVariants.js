@@ -38,7 +38,7 @@ export const titleAppear = {
     animate: delay => (
         {
             opacity: 1,
-            x: delay ? '1vw' : '-0.5vw',
+            x: 0,
             transition: {
                 duration: 0.2,
                 delay: .8 + delay / 8,

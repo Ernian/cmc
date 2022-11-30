@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import useAppContext from '../hooks/useAppContext'
 import { MArrow } from '../arrow/Arrow'
@@ -12,7 +12,7 @@ import {
     arrowAppear
 } from '../animationVariants'
 
-const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
+const ElementArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
     const { setMenuColors } = useAppContext()
     useEffect(() => {
         setMenuColors(menuColors)
@@ -21,9 +21,6 @@ const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
     let { id } = useParams()
     id = String(+id - 1)
     const { title, text, img } = articleList[id]
-
-    const navigate = useNavigate()
-    const goBack = () => navigate(-1)
 
     return (
         <div className='section-container'>
@@ -45,6 +42,19 @@ const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
                     stroke={css.arrowColor}
                     variants={arrowAppear}
                 />
+                <motion.h1
+                    className='section-title'
+                    style={{
+                        color: css.leftArticleTitleColor,
+                        fontSize: css.leftArticleTitleSize,
+                        lineHeight: css.leftArticleTitleLineHeight,
+                        width: 550,
+                        marginLeft: 'auto'
+                    }}
+                    variants={titleAppear}
+                >
+                    {title}
+                </motion.h1>
             </motion.div>
             <motion.div
                 className='section-right-side'
@@ -60,18 +70,12 @@ const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
                     className='section-bottom-img'
                     style={{ backgroundImage: `url(${pageBottomImg})` }}
                 />
-                <motion.h1
-                    className='section-title'
-                    style={{
-                        color: css.titleColor
-                    }}
-                    variants={titleAppear}
-                >
-                    {title}
-                </motion.h1>
                 <motion.div
                     variants={textAppear}
                     className='article-text'
+                    style={{
+                        marginTop: 150,
+                    }}
                 >
                     {text}
                 </motion.div>
@@ -80,4 +84,4 @@ const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
     )
 }
 
-export default ArticlePage
+export default ElementArticlePage

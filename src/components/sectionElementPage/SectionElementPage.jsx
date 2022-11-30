@@ -1,20 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { MArrow } from '../arrow/Arrow'
 import useAppContext from '../hooks/useAppContext'
 import {
     leftSideVariants,
     rightSideVariants,
-    titleAppear
+    titleAppear,
+    arrowAppear
 } from '../animationVariants'
-import './sectionMenuPage.css'
+import './SectionElementPage.css'
 
-const SectionMenuPage = ({
+const SectionElementPage = ({
     sectionTitle,
     articleList,
     pageBottomImg,
     menuColors,
-    css
+    css,
+    svg
 }) => {
 
     const { setMenuColors } = useAppContext()
@@ -41,7 +44,6 @@ const SectionMenuPage = ({
             } else {
                 setSelectedArticle(article)
             }
-
         }
     }
 
@@ -65,6 +67,11 @@ const SectionMenuPage = ({
                         />
                     </div>
                 }
+                <MArrow
+                    stroke={css.arrowColor}
+                    variants={arrowAppear}
+                />
+                {!!svg && <img src={svg} alt={sectionTitle} className='svg-bg' />}
             </motion.div>
             <motion.div
                 className='section-right-side'
@@ -123,4 +130,4 @@ const SectionMenuPage = ({
     )
 }
 
-export default SectionMenuPage
+export default SectionElementPage
