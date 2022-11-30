@@ -11,12 +11,13 @@ import SectionMenuPage from './components/sectionMenuPage/SectionMenuPage'
 import SectionElementPage from './components/sectionElementPage/SectionElementPage'
 import ArticlePage from './components/articlePage/ArticlePage'
 import ElementArticlePage from './components/elementArticlePage/ElementArticlePage'
+import AboutCompany from './components/pages/aboutCompany/AboutCompany'
 import { productionPageData, heatPageData, waterPageData, windPageData, coldPageData } from './components/data'
 
 export const AppContext = createContext(null)
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [menuColors, setMenuColors] = useState({
         logoMenuClose: '#FBA91B',
         logoMenuOpen: '#FFF',
@@ -108,6 +109,16 @@ function App() {
                                         }}
                                         {...coldPageData}
                                     />}
+                            />
+                            <Route
+                                path='/company'
+                                element={<AboutCompany
+                                    menuColors={{
+                                        logoMenuClose: '#FFF',
+                                        logoMenuOpen: '#FFF',
+                                        menuColor: '#FFF',
+                                    }}
+                                />}
                             />
                             <Route
                                 path='/production'

@@ -1,0 +1,14 @@
+.left-header,
+.right-header {
+    font-size: 64px;
+}
+
+.left-header,
+.left-text {
+    color: #25262A;
+}
+
+.rigth-header,
+.right-text {
+    color: #FBA91B
+}

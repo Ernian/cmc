@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import useAppContext from '../hooks/useAppContext'
 import { MArrow } from '../arrow/Arrow'
@@ -21,9 +21,6 @@ const ArticlePage = ({ pageBottomImg, articleList, css, menuColors }) => {
     let { id } = useParams()
     id = String(+id - 1)
     const { title, text, img } = articleList[id]
-
-    const navigate = useNavigate()
-    const goBack = () => navigate(-1)
 
     return (
         <div className='section-container'>
