@@ -52,7 +52,7 @@ const Element = ({
     const svgMoveVariants = {
         hidden: { x: 0 },
         visible: {
-            x: elementsState[type] ? (leftSide ? -740 : 546) : null,
+            x: elementsState[type] ? (leftSide ? -725 : 570) : null,
             transition: {
                 duration: .3,
                 ease: 'easeInOut',
@@ -92,7 +92,6 @@ const Element = ({
                 style={{
                     backgroundColor: color,
                     textAlign: leftSide ? 'right' : 'left',
-                    borderRadius: leftSide ? '0px 10px 10px 0px' : '10px 0px 0px 10px',
                 }}
                 className={`element-title ${type}`}
                 initial='hidden'

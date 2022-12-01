@@ -1,6 +1,6 @@
 .element {
-    width: 196px;
-    height: 196px;
+    width: 156px;
+    height: 156px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,17 +14,18 @@
 
 .element-title {
     display: none;
-    width: 0px;
-    height: 196px;
+    width: 100px;
+    height: 156px;
     padding: 12px 18px;
     box-sizing: border-box;
+    border-radius: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
-    font-family: 'CirceBold';
+    font-family: 'CirceLight';
     font-size: 128px;
-    line-height: 196px;
-    color: #1E1E1E;
+    line-height: 156px;
+    color: #25282A;
     margin-left: auto;
     cursor: pointer;
 }
@@ -34,9 +35,9 @@
     margin: 0;
     text-align: center;
     font-size: 32px;
-    line-height: 38px;
-    letter-spacing: 0.305em;
-    color: #FBA91B;
+    line-height: 33px;
+    letter-spacing: 0.174em;
+    color: #BEBEBE;
     position: absolute;
     top: 50%;
     left: 50%;

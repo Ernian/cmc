@@ -17,15 +17,15 @@ const ReadyDecision = () => {
 
     useEffect(() => {
         if (screenWidth <= 595) {
-            elementsProps[0].position.end = { x: -145, y: -145 }
-            elementsProps[1].position.end = { x: 5, y: -145 }
-            elementsProps[2].position.end = { x: -145, y: 5 }
+            elementsProps[0].position.end = { x: -108, y: -108 }
+            elementsProps[1].position.end = { x: 5, y: -108 }
+            elementsProps[2].position.end = { x: -108, y: 5 }
             elementsProps[3].position.end = { x: 5, y: 5 }
         }
         if (screenWidth > 595) {
-            elementsProps[0].position.end = { x: -201, y: -201 }
-            elementsProps[1].position.end = { x: 5, y: -201 }
-            elementsProps[2].position.end = { x: -201, y: 5 }
+            elementsProps[0].position.end = { x: -162, y: -162 }
+            elementsProps[1].position.end = { x: 5, y: -162 }
+            elementsProps[2].position.end = { x: -162, y: 5 }
             elementsProps[3].position.end = { x: 5, y: 5 }
         }
     }, [screenWidth])

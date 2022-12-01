@@ -121,8 +121,8 @@ export const productionPageData = {
         titleColor: '#FBA91B',
         titleFontSize: 64,
         lineHeight: '70px',
-        articleTitleColor: '#FFF',
-        articleTitleHoverColor: '#FBA91B',
+        articleTitleColor: '#A2A2A2',
+        articleTitleHoverColor: '#FFF',
         arrowColor: '#000',
     }
 }

@@ -166,7 +166,6 @@ const Header = ({ logoMenuOpen, logoMenuClose, menuColor, isLoading }) => {
                     animate="animate"
                     variants={isMenuClicked ? menuVariantsIn : menuVariantsOut}
                 >
-                    <div className='menu-left-side' />
                     <div className='menu-right-side'>
                         {menuLinks.map(({ title, url }, i) => (
                             <motion.p
@@ -178,7 +177,7 @@ const Header = ({ logoMenuOpen, logoMenuClose, menuColor, isLoading }) => {
                                 variants={isMenuClicked ? pVariantsIn : pVariantsOut}
                                 custom={i}
                                 whileHover={{
-                                    scale: 1.015,
+                                    // scale: 1.015,
                                     color: '#FBA91B',
                                     transition: {
                                         duration: 0.2

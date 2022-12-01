@@ -8,14 +8,19 @@
   src: url('./assets/fonts/CirceRegular.ttf');
 }
 
+@font-face {
+  font-family: 'CirceLight';
+  src: url('./assets/fonts/CirceLight.ttf');
+}
+
 :root {
-  --bg-color: #282828;
+  --bg-color: #25262A;
   --primary-color: #FBA91B;
 }
 
 body {
   margin: 0;
-  background-color: #1E1E1E;
+  background-color: #25262A;
   font-family: 'CirceRegular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
