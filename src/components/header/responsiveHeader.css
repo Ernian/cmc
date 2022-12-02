@@ -8,9 +8,20 @@
         height: 38px;
     }
 
+    .menu {
+        padding: 3%;
+    }
+
+    .menu-container {
+        justify-content: flex-end;
+    }
+
+    .menu-left-side {
+        display: none;
+    }
+
     .menu-right-side {
-        width: 100%;
-        padding-right: 20px;
+        padding-right: 30px;
     }
 
     .menu-link-text {

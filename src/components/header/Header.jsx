@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Logo from './Logo'
+import MenuElements from '../menuElements/MenuElements'
 import './header.css'
 import './responsiveHeader.css'
 
@@ -166,75 +167,80 @@ const Header = ({ logoMenuOpen, logoMenuClose, menuColor, isLoading }) => {
                     animate="animate"
                     variants={isMenuClicked ? menuVariantsIn : menuVariantsOut}
                 >
-                    <div className='menu-right-side'>
-                        {menuLinks.map(({ title, url }, i) => (
-                            <motion.p
-                                key={url}
-                                className='menu-link'
-                                onClick={closeMenu}
-                                initial='initial'
-                                animate='animate'
-                                variants={isMenuClicked ? pVariantsIn : pVariantsOut}
-                                custom={i}
-                                whileHover={{
-                                    // scale: 1.015,
-                                    color: '#FBA91B',
-                                    transition: {
-                                        duration: 0.2
-                                    }
-                                }}
-                            >
-                                <Link
-                                    to={url}
-                                    className={
-                                        currentUrl === url ?
-                                            'menu-link-text selected-menu-link'
-                                            : 'menu-link-text '
-                                    }
+                    <div className='menu-container'>
+                        <div className="menu-left-side">
+                            <MenuElements closeMenu={closeMenu} />
+                        </div>
+                        <div className="menu-right-side">
+                            {menuLinks.map(({ title, url }, i) => (
+                                <motion.p
+                                    key={url}
+                                    className='menu-link'
+                                    onClick={closeMenu}
+                                    initial='initial'
+                                    animate='animate'
+                                    variants={isMenuClicked ? pVariantsIn : pVariantsOut}
+                                    custom={i}
+                                    whileHover={{
+                                        // scale: 1.015,
+                                        color: '#FBA91B',
+                                        transition: {
+                                            duration: 0.2
+                                        }
+                                    }}
                                 >
-                                    {title}
-                                </Link>
-                            </motion.p>
-                        ))}
+                                    <Link
+                                        to={url}
+                                        className={
+                                            currentUrl === url ?
+                                                'menu-link-text selected-menu-link'
+                                                : 'menu-link-text '
+                                        }
+                                    >
+                                        {title}
+                                    </Link>
+                                </motion.p>
+                            ))}
 
-                        <motion.p
-                            className='menu-address'
-                            variants={isMenuClicked ? fadeIn : fadeOut}
-                            custom={0.9}
-                        >
-                            <motion.a
-                                target='_blank'
-                                href="https://goo.gl/maps/HVAG3DTjWEAdFD7WA"
-                                whileHover={toWhiteColor}
+                            <motion.p
+                                className='menu-address'
+                                variants={isMenuClicked ? fadeIn : fadeOut}
+                                custom={0.9}
                             >
-                                123112, ГОРОД МОСКВА,<br />
-                                НАБЕРЕЖНАЯ ПРЕСНЕНСКАЯ,<br />
-                                ДОМ 10, ЭТАЖ 43 ПОМ I КОМ 1-8
-                            </motion.a>
-                        </motion.p>
-                        <motion.p
-                            className='menu-phone'
-                            variants={isMenuClicked ? fadeIn : fadeOut}
-                            custom={1.1}
-                        >
-                            <motion.a href="tel:84994260423"
-                                whileHover={toWhiteColor}
+                                <motion.a
+                                    target='_blank'
+                                    href="https://goo.gl/maps/HVAG3DTjWEAdFD7WA"
+                                    whileHover={toWhiteColor}
+                                >
+                                    123112, ГОРОД МОСКВА,<br />
+                                    НАБЕРЕЖНАЯ ПРЕСНЕНСКАЯ,<br />
+                                    ДОМ 10, ЭТАЖ 43 ПОМ I КОМ 1-8
+                                </motion.a>
+                            </motion.p>
+                            <motion.p
+                                className='menu-phone'
+                                variants={isMenuClicked ? fadeIn : fadeOut}
+                                custom={1.1}
                             >
-                                +7 (499) 426-04-23
-                            </motion.a>
-                        </motion.p>
-                        <motion.p
-                            className='menu-mail'
-                            variants={isMenuClicked ? fadeIn : fadeOut}
-                            custom={1.3}
-                        >
-                            <motion.a
-                                href="mailto:info@smseng.ru"
-                                whileHover={toWhiteColor}
+                                <motion.a href="tel:84994260423"
+                                    whileHover={toWhiteColor}
+                                >
+                                    +7 (499) 426-04-23
+                                </motion.a>
+                            </motion.p>
+                            <motion.p
+                                className='menu-mail'
+                                variants={isMenuClicked ? fadeIn : fadeOut}
+                                custom={1.3}
                             >
-                                info@smseng.ru
-                            </motion.a>
-                        </motion.p>
+                                <motion.a
+                                    href="mailto:info@smseng.ru"
+                                    whileHover={toWhiteColor}
+                                >
+                                    info@smseng.ru
+                                </motion.a>
+                            </motion.p>
+                        </div>
                     </div>
                 </motion.div>
             </header >
