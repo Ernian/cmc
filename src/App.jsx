@@ -4,32 +4,45 @@ import { AnimatePresence } from 'framer-motion'
 import {
     LoadingPage,
     MainPage,
+    HeatePage,
+    WaterPage,
+    WindPage,
+    ColdPage,
     Page404,
+    ProductionPage,
 } from './components/pages'
 import Header from './components/header/Header'
-import SectionMenuPage from './components/sectionMenuPage/SectionMenuPage'
-import SectionElementPage from './components/sectionElementPage/SectionElementPage'
 import ArticlePage from './components/articlePage/ArticlePage'
 import ElementArticlePage from './components/elementArticlePage/ElementArticlePage'
 import AboutCompany from './components/pages/aboutCompany/AboutCompany'
 import { productionPageData, heatPageData, waterPageData, windPageData, coldPageData } from './components/data'
 
-export const AppContext = createContext(null)
+export const AppContext = createContext()
 
 function App() {
-    const [isLoading, setIsLoading] = useState(false)
-    const [menuColors, setMenuColors] = useState({
+    const [isLoading, setIsLoading] = useState(true)
+    const [globalMenuColors, setMenuColors] = useState({
         logoMenuClose: '#FBA91B',
         logoMenuOpen: '#FFF',
         menuColor: '#FBA91B',
     })
     const [screenWidth, setScreenWidth] = useState(document.documentElement.clientWidth)
 
-    window.addEventListener('resize', () => {
-        setScreenWidth(document.documentElement.clientWidth)
-    })
+    function debounce(callback, delay) {
+        let timer
+        return function (...args) {
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                callback.apply(this, args)
+            }, delay)
+        }
+    }
 
-    const context = { setMenuColors, screenWidth, setScreenWidth }
+    const watchWidth = debounce(() => setScreenWidth(document.documentElement.clientWidth), 300)
+
+    window.addEventListener('resize', watchWidth)
+
+    const context = { globalMenuColors, setMenuColors, screenWidth, setScreenWidth }
 
     return (
         <AppContext.Provider value={context}>
@@ -39,7 +52,7 @@ function App() {
                         <Route
                             path='/'
                             element={<Header
-                                {...menuColors}
+                                {...globalMenuColors}
                                 isLoading={isLoading}
                             />}>
                             <Route index element={
@@ -49,15 +62,7 @@ function App() {
                             } />
                             <Route
                                 path='/heat'
-                                element={
-                                    <SectionElementPage
-                                        menuColors={{
-                                            logoMenuClose: '#FFF',
-                                            logoMenuOpen: '#FFF',
-                                            menuColor: '#FFF',
-                                        }}
-                                        {...heatPageData}
-                                    />}
+                                element={<HeatePage />}
                             />
 
                             {/* <Route
@@ -74,41 +79,17 @@ function App() {
 
                             <Route
                                 path='/water'
-                                element={
-                                    <SectionElementPage
-                                        menuColors={{
-                                            logoMenuClose: '#FFF',
-                                            logoMenuOpen: '#FFF',
-                                            menuColor: '#FFF',
-                                        }}
-                                        {...waterPageData}
-                                    />}
+                                element={<WaterPage />}
                             />
 
                             <Route
                                 path='/wind'
-                                element={
-                                    <SectionElementPage
-                                        menuColors={{
-                                            logoMenuClose: '#FFF',
-                                            logoMenuOpen: '#FFF',
-                                            menuColor: '#FFF',
-                                        }}
-                                        {...windPageData}
-                                    />}
+                                element={<WindPage />}
                             />
 
                             <Route
                                 path='/cold'
-                                element={
-                                    <SectionElementPage
-                                        menuColors={{
-                                            logoMenuClose: '#FFF',
-                                            logoMenuOpen: '#FFF',
-                                            menuColor: '#FFF',
-                                        }}
-                                        {...coldPageData}
-                                    />}
+                                element={<ColdPage />}
                             />
                             <Route
                                 path='/company'
@@ -122,14 +103,7 @@ function App() {
                             />
                             <Route
                                 path='/production'
-                                element={<SectionMenuPage
-                                    menuColors={{
-                                        logoMenuClose: '#FFF',
-                                        logoMenuOpen: '#FFF',
-                                        menuColor: '#FFF',
-                                    }}
-                                    {...productionPageData}
-                                />}
+                                element={<ProductionPage />}
                             />
                             <Route
                                 path='/production/:id'

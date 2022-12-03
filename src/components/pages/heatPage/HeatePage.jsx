@@ -1,8 +1,8 @@
-import SectionMenuPage from '../../sectionMenuPage/SectionMenuPage'
-import { productionPageData } from '../../data'
+import SectionElementPage from '../../sectionElementPage/SectionElementPage'
+import { heatPageData } from '../../data'
 
-const ProductionPage = () => (
-    <SectionMenuPage
+const HeatePage = () => (
+    <SectionElementPage
         menuColors={{
             logoMenuClose: '#FFF',
             logoMenuOpen: '#FFF',
@@ -13,8 +13,8 @@ const ProductionPage = () => (
             logoMenuOpen: '#FFF',
             menuColor: '#000',
         }}
-        {...productionPageData}
+        {...heatPageData}
     />
 )
 
-export default ProductionPage
+export default HeatePage

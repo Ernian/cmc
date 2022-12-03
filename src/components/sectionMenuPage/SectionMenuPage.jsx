@@ -8,19 +8,26 @@ import {
     titleAppear
 } from '../animationVariants'
 import './sectionMenuPage.css'
+import './responsiveSectionPage.css'
 
 const SectionMenuPage = ({
     sectionTitle,
     articleList,
     pageBottomImg,
     menuColors,
+    mobileMenuColors,
     css
 }) => {
 
-    const { setMenuColors } = useAppContext()
+    const { globalMenuColors, setMenuColors, screenWidth } = useAppContext()
     useEffect(() => {
-        setMenuColors(menuColors)
-    }, [])
+        if (screenWidth <= 595 && globalMenuColors.menuColor !== mobileMenuColors.menuColor) {
+            setMenuColors(mobileMenuColors)
+        }
+        if (screenWidth > 595 && globalMenuColors.menuColor !== menuColors.menuColor) {
+            setMenuColors(menuColors)
+        }
+    }, [screenWidth])
 
     const [selectedArticle, setSelectedArticle] = useState(null)
     const imgRef = useRef()

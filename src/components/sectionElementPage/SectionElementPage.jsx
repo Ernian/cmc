@@ -16,14 +16,20 @@ const SectionElementPage = ({
     articleList,
     pageBottomImg,
     menuColors,
+    mobileMenuColors,
     css,
-    svg
+    svg,
 }) => {
 
-    const { setMenuColors } = useAppContext()
+    const { globalMenuColors, setMenuColors, screenWidth } = useAppContext()
     useEffect(() => {
-        setMenuColors(menuColors)
-    }, [])
+        if (screenWidth <= 595 && globalMenuColors.menuColor !== mobileMenuColors.menuColor) {
+            setMenuColors(mobileMenuColors)
+        }
+        if (screenWidth > 595 && globalMenuColors.menuColor !== menuColors.menuColor) {
+            setMenuColors(menuColors)
+        }
+    }, [screenWidth])
 
     const [selectedArticle, setSelectedArticle] = useState(null)
     const imgRef = useRef()
@@ -72,6 +78,7 @@ const SectionElementPage = ({
                     variants={arrowAppear}
                 />
                 {!!svg && <img src={svg} alt={sectionTitle} className='svg-bg' />}
+                <h2 className='mobile-section-title'>{sectionTitle}</h2>
             </motion.div>
             <motion.div
                 className='section-right-side'
@@ -110,7 +117,7 @@ const SectionElementPage = ({
                         variants={titleAppear}
                         custom={i + 1}
                         onMouseEnter={() => selectArticle(article)}
-                        style={{ marginLeft: 75 }}
+                        style={{ marginLeft: screenWidth > 595 ? 75 : 30 }}
                     >
                         <Link
                             to={article.url}

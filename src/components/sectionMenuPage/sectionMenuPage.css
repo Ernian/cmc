@@ -41,13 +41,16 @@
     font-weight: 1000;
     font-size: 64px;
     line-height: 100px;
-    color: #FBA91B;
     text-transform: uppercase;
     user-select: none;
     margin-top: 200px;
     margin-bottom: 5px;
     margin-left: 75px;
     padding: 0;
+}
+
+.mobile-section-title {
+    display: none;
 }
 
 .article-title {

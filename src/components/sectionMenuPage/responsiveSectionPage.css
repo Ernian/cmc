@@ -1,0 +1,43 @@
+@media screen and (max-width: 595px) {
+    .section-container {
+        flex-direction: column;
+    }
+
+    .section-left-side,
+    .section-right-side {
+        width: 100%;
+    }
+
+    .section-left-side {
+        height: 40vh;
+    }
+
+    .section-right-side {
+        height: 60vh;
+    }
+
+    .arrow-back,
+    .section-top-img,
+    .section-title,
+    .svg-bg {
+        display: none;
+    }
+
+    .article-title {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .mobile-section-title {
+        display: block;
+        font-family: 'CirceLight';
+        font-size: 128px;
+        color: #1E1E1E;
+        line-height: 120px;
+        text-transform: uppercase;
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
